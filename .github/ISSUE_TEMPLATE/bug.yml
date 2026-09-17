@@ -1,0 +1,91 @@
+name: Bug
+description: Something in the Project Management System is broken or behaves incorrectly
+title: "fix(<area>): <short description>"
+labels: ["type:bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the defect precisely — the fixer (human or Claude Code) will work
+        from this issue alone.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug description
+      description: What is wrong, and what impact does it have?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps starting from how the app is started (`yarn web`).
+      placeholder: |
+        1. Run `yarn web` and open http://localhost:3000
+        2. Go to ...
+        3. Click ...
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include console errors, screenshots, or logs if available.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "Critical — blocks core workflow, no workaround"
+        - "Major — main feature degraded, workaround exists"
+        - "Minor — edge case or cosmetic"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, browser, dark/light mode, relevant branch or commit.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope-constraints
+    attributes:
+      label: Fix constraints / scope
+      description: |
+        What the fix must and must not touch (e.g. "fix in packages/ui Table only;
+        do not change the projects page layout").
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Checklist proving the bug is fixed and nothing regressed. Use `- [ ]` items.
+    validations:
+      required: true
+
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of Done
+      value: |
+        - [ ] All Acceptance Criteria met
+        - [ ] lint + typecheck + build pass
+        - [ ] PR opened against `develop`, linked to this issue
+        - [ ] Fix verified in both dark and light mode (if UI)
