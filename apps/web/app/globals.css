@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.neural-ai-aurora {
+  background:
+    radial-gradient(
+      ellipse 100% 80% at 12% 22%,
+      rgba(34, 211, 238, 0.34),
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 95% 75% at 88% 72%,
+      rgba(167, 139, 250, 0.28),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 80% 65% at 50% 50%,
+      rgba(52, 211, 153, 0.16),
+      transparent 55%
+    );
+  animation: neural-aurora-shift 18s ease-in-out infinite alternate;
+}
+
+.neural-ai-aurora-secondary {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    rgba(34, 211, 238, 0.12) 55deg,
+    transparent 115deg,
+    rgba(167, 139, 250, 0.1) 195deg,
+    transparent 275deg,
+    rgba(52, 211, 153, 0.08) 315deg,
+    transparent 360deg
+  );
+  animation: neural-aurora-rotate 52s linear infinite;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+
+.neural-hex-grid {
+  opacity: 0.45;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 2 L54 16 L54 44 L28 58 L2 44 L2 16 Z' fill='none' stroke='rgba(34,211,238,0.14)' stroke-width='0.6'/%3E%3Cpath d='M28 42 L54 56 L54 84 L28 98 L2 84 L2 56 Z' fill='none' stroke='rgba(167,139,250,0.1)' stroke-width='0.6'/%3E%3C/svg%3E");
+  background-size: 56px 100px;
+  animation: neural-hex-drift 48s linear infinite;
+}
+
+.neural-circuit-grid {
+  opacity: 0.55;
+  background-image:
+    linear-gradient(
+      color-mix(in srgb, var(--neural-cyan, #22d3ee) 18%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--neural-cyan, #22d3ee) 18%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  animation: neural-grid-drift 40s linear infinite;
+  mask-image: radial-gradient(
+    ellipse 90% 80% at 50% 50%,
+    black 30%,
+    transparent 85%
+  );
+}
+
+.neural-data-shimmer {
+  background: linear-gradient(
+    100deg,
+    transparent 40%,
+    rgba(34, 211, 238, 0.06) 47%,
+    rgba(167, 139, 250, 0.09) 50%,
+    rgba(52, 211, 153, 0.05) 53%,
+    transparent 60%
+  );
+  background-size: 300% 100%;
+  animation: neural-shimmer-sweep 9s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.neural-embedding-field {
+  background-image: radial-gradient(
+    rgba(34, 211, 238, 0.2) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  opacity: 0.35;
+  animation: neural-embedding-drift 60s linear infinite;
+}
+
+@keyframes neural-hex-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 56px 100px;
+  }
+}
+
+@keyframes neural-embedding-drift {
+  0% {
+    background-position: 0 0;
+    opacity: 0.28;
+  }
+  50% {
+    opacity: 0.42;
+  }
+  100% {
+    background-position: 22px 22px;
+    opacity: 0.28;
+  }
+}
+
+@keyframes neural-grid-drift {
+  0% {
+    background-position:
+      0 0,
+      0 0;
+  }
+  100% {
+    background-position:
+      64px 64px,
+      64px 64px;
+  }
+}
+
+@keyframes neural-aurora-shift {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.14) translate(2.5%, -2.5%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.05) translate(-2.5%, 3.5%);
+    opacity: 0.92;
+  }
+}
+
+@keyframes neural-aurora-rotate {
+  0% {
+    transform: rotate(0deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.05);
+  }
+}
+
+@keyframes neural-shimmer-sweep {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -80% 0;
+  }
+}
+
+html,
+body,
+#__next {
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+#__next {
+  flex-shrink: 0;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-grow: 1;
+  display: flex;
+  flex: 1;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  display: flex;
+  overflow-y: auto;
+  overscroll-behavior-y: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-overflow-style: scrollbar;
+  font-family:
+    var(--font-inter),
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "baseUrl": "./packages",
+    "paths": {
+      "ui/*": ["./ui/*"],
+      "shared_mono_app/*": ["./shared_mono_app/*"],
+      "state/*": ["./state/*"],
+      "api/*": ["./api/*"]
+    },
+    "jsx": "react-jsx"
+  },
+  "include": ["packages/**/*", "packages/**/*.d.ts"],
+  "exclude": ["node_modules", "**/node_modules", "**/dist", "packages/*/dist"],
+  "extends": "expo/tsconfig.base"
+}

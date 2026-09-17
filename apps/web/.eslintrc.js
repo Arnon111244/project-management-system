@@ -1,0 +1,5 @@
+module.exports = {
+  extends: ["next/core-web-vitals"],
+  plugins: ["@typescript-eslint"],
+  rules: {},
+};

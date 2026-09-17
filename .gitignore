@@ -1,0 +1,174 @@
+# ---- Root monorepo .gitignore ----
+# Covers: Node.js/TypeScript, TurboRepo, Next.js (apps/web), Expo/React Native (apps/native),
+# platform build artifacts, env files, editors/OS junk, and common caches.
+
+############################
+# Node / TypeScript
+############################
+node_modules/
+**/node_modules/
+
+# Build outputs
+build/
+dist/
+.tmp/
+.temp/
+.temp/*
+.temp/**/*
+*.tsbuildinfo
+
+# Caches
+.cache/
+**/.cache/
+.eslintcache
+.stylelintcache
+.turbo/
+.pnpm-store/
+
+# Logs
+logs/
+**/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+############################
+# Environment files
+############################
+# Keep example files committed.
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Allow committed environment presets for web (safe, non-secret)
+!apps/web/.env.sandbox
+!apps/web/.env.production
+
+# Local overrides / dotenv variants
+.env.local
+.env.*.local
+.envrc
+.direnv
+
+############################
+# Next.js (apps/web)
+############################
+.next/
+out/
+.vercel/
+# Large free bundle — host via GitHub Release or keep locally for dev
+apps/web/public/React-Native-Next-Theme.zip
+# Keep Next.js type helper
+!**/next-env.d.ts
+
+############################
+# Expo & React Native (apps/native)
+############################
+# Expo
+.expo/
+# .expo-shared often contains assets mapping; many teams commit it. Do NOT ignore by default.
+# .expo-shared/
+web-build/
+
+# Metro / Packager caches
+.metro-cache/
+**/.metro-cache/
+packager-info.json
+haste-map-*
+
+# iOS (for prebuild or bare workflow)
+ios/build/
+ios/DerivedData/
+ios/Pods/
+ios/*.xcworkspace/xcuserdata/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+ios/*.xcuserstate
+# Fastlane and code signing
+ios/fastlane/report.xml
+ios/fastlane/screenshots/
+ios/*.mobileprovision
+*.certSigningRequest
+*.p12
+
+# Android (for prebuild or bare workflow)
+android/.gradle/
+android/local.properties
+android/**/build/
+android/build/
+android/captures/
+android/*.iml
+android/app/release/
+android/app/debug/
+android/app/profile/
+android/app/*.keystore
+android/app/*.jks
+
+############################
+# Package managers
+############################
+# Yarn Berry (v2+) specific
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# npm & pnpm lockfiles should be committed — do NOT ignore:
+# package-lock.json
+# pnpm-lock.yaml
+# yarn.lock
+
+############################
+# Editors / IDEs
+############################
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*.orig
+
+############################
+# OS files
+############################
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+############################
+# Misc tools
+############################
+coverage/
+.nyc_output/
+.parcel-cache/
+.storybook-out/
+
+# Local tooling
+.env.test.local
+
+# Android generated signing files
+**/android/app/*.keystore
+**/android/app/*.jks
+# Android signing files
+**/android/app/*.keystore
+**/android/app/*.jks

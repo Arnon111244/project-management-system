@@ -1,0 +1,13 @@
+{
+  "name": "ui",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.ts",
+  "sideEffects": false,
+  "dependencies": {
+    "@react-native-picker/picker": "^2.7.7",
+    "class-variance-authority": "^0.7.1",
+    "lucide-react-native": "^0.544.0",
+    "react-native-webview": "^13.8.4"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "name": "reactone",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "reset": "turbo run clean || true; rm -rf node_modules .turbo .expo; find apps -name node_modules -type d -prune -exec rm -rf {} +; find packages -name node_modules -type d -prune -exec rm -rf {} +",
+    "reinstall": "yarn run reset && yarn",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install",
+    "web": "yarn workspace web dev",
+    "build:web": "yarn workspace web build",
+    "start-web": "yarn build:web && yarn workspace web start",
+    "ios": "yarn workspace mobile ios",
+    "ios:debug": "yarn workspace mobile ios:debug",
+    "android": "yarn workspace mobile android",
+    "android:mac": "yarn workspace mobile android:mac",
+    "android:clear-expo": "yarn workspace mobile android:clear-expo",
+    "android:debug": "yarn workspace mobile android:debug",
+    "android:fix-connection": "yarn workspace mobile android:clear-expo; adb reverse tcp:8081 tcp:8081 || true; adb reverse tcp:19000 tcp:19000 || true; adb reverse tcp:19001 tcp:19001 || true; adb shell am force-stop host.exp.exponent || true; adb shell am start -a android.intent.action.VIEW -d \"exp://127.0.0.1:8081\" || true; echo \"Tried to reopen Expo on the emulator and reapply adb reverse. If the app still doesn't connect, run 'yarn android' and set dev server host in Expo Dev Settings to 127.0.0.1:8081\"",
+    "sand": "node scripts/switch-env.js sandbox",
+    "prod": "node scripts/switch-env.js production",
+    "env": "node scripts/switch-env.js check",
+    "commitlint:check": "commitlint --from=HEAD~1 --to=HEAD",
+    "api": "node scripts/new-feature-api.js",
+    "del-api": "node scripts/delete-feature-api.js"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "yarn@1.22.19",
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@typescript-eslint/eslint-plugin": "8.44.0",
+    "@typescript-eslint/parser": "8.44.0",
+    "clsx": "^2.1.1",
+    "eslint": "^9.36.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
+    "prettier": "^3.3.2",
+    "tailwind-merge": "^2.5.2",
+    "turbo": "^2.0.4"
+  },
+  "engines": {
+    "node": ">=18",
+    "yarn": ">=1 <2"
+  },
+  "resolutions": {
+    "tailwindcss": "^3.4.1",
+    "string-width": "^4.2.3",
+    "strip-ansi": "^6.0.1",
+    "wrap-ansi": "^7.0.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "yarn": "^1.22.22",
+    "expo-file-system": "^19.0.21",
+    "expo-sharing": "^14.0.8"
+  }
+}

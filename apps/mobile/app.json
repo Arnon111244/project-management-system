@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "ReactOne",
+    "slug": "ReactOne",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/LogoMonorepo.png",
+    "scheme": "reactone",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/cover.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.ReactOne",
+      "jsEngine": "hermes"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/LogoMonorepo.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.anonymous.ReactOne",
+      "jsEngine": "hermes"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/LogoMonorepo.png"
+    },
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

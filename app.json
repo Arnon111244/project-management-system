@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "8de6e6c2-462b-4ee3-94eb-d8d535148c16"
+      }
+    },
+    "android": {
+      "package": "com.arefabdallah65.reactone"
+    }
+  }
+}

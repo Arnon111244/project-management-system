@@ -1,0 +1,15 @@
+{
+  "name": "app",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.ts",
+  "sideEffects": false,
+  "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
+    "expo-image-picker": "~17.0.10",
+    "react-hook-form": "^7.53.0",
+    "expo-document-picker": "^14.0.7",
+    "react-native-webview": "^13.8.4",
+    "zod": "^3.23.8"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "api",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.tsx",
+  "types": "index.tsx",
+  "sideEffects": false,
+  "dependencies": {
+    "@tanstack/react-query": "^5.59.16"
+  }
+}
