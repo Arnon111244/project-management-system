@@ -7,6 +7,7 @@ import { NeuralPromptBar } from "./NeuralPromptBar";
 import { TrustMarqueeSection } from "./trustMarqueeSection";
 import { HeroStatsRow } from "./heroStatsRow";
 import { HeroHighlightPills } from "./heroHighlightPills";
+import { NeuralHeroBackground } from "./NeuralAnimatedBackground";
 import { scrollToSection } from "../utils/scrollToSection";
 import { useLandingSectionRef } from "../hooks/useLandingSectionRef";
 
@@ -20,7 +21,9 @@ export function HeroSection() {
       collapsable={false}
       className="relative w-full overflow-hidden pb-6 md:pb-12"
     >
-      <Pressable className="w-full max-w-[900px] mx-auto px-3 sm:px-4 md:px-6 items-center pt-4 sm:pt-6 md:pt-8">
+      <NeuralHeroBackground />
+
+      <Pressable className="relative z-10 w-full max-w-[900px] mx-auto px-3 sm:px-4 md:px-6 items-center pt-4 sm:pt-6 md:pt-8">
         <AnimatedSection delay={0} variant="fadeUp">
           <View
             className="mb-4 sm:mb-6 self-center rounded-full px-3 sm:px-4 py-1.5 border max-w-full"

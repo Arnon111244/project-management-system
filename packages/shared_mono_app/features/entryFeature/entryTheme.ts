@@ -1,1 +1,1 @@
-export { BRAINWAVE, BRAINWAVE_SECTION_IDS } from "./brainwaveTheme";
+export { BRAINWAVE_SECTION_IDS } from "./brainwaveTheme";
