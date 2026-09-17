@@ -1,0 +1,67 @@
+name: Technical / Refactoring
+description: Internal engineering change — tooling, architecture, debt (no user-visible behavior change)
+title: "refactor(<area>): <short description>"
+labels: ["type:technical"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For work invisible to end users: build/CI, tooling, package structure,
+        performance, type safety, dependency hygiene.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / motivation
+      description: What is wrong today, and what does it cost us (bugs, speed, DX, risk)?
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current behavior / implementation
+      description: What exists now, with file paths.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-change
+    attributes:
+      label: Proposed change
+      description: Target state. Keep it as small as the problem allows.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: guarantees
+    attributes:
+      label: Guarantees
+      options:
+        - label: No user-visible behavior change
+        - label: No new runtime dependencies (or justify below)
+        - label: Does not modify unrelated files
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints / alternatives considered
+      description: Trade-offs, alternatives rejected, migration/rollout notes.
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Use `- [ ]` items — must include "lint + typecheck + build pass".
+    validations:
+      required: true
+
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of Done
+      value: |
+        - [ ] All Acceptance Criteria met
+        - [ ] No user-visible behavior change (unless explicitly requested)
+        - [ ] lint + typecheck + build pass
+        - [ ] PR opened against `develop`, linked to this issue

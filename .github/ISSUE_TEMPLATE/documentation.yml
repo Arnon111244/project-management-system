@@ -1,0 +1,64 @@
+name: Documentation
+description: Docs change — CLAUDE.md, domain spec, guides, ADRs (no code change)
+title: "docs: <short description>"
+labels: ["type:documentation"]
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What should a reader know or be able to do after reading this doc?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Documentation type
+      options:
+        - "New document"
+        - "Update existing document"
+        - "Remove / restructure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Target location
+      description: File to create/change, e.g. `docs/requirements/project-management-domain-spec.md`.
+    validations:
+      required: true
+
+  - type: textarea
+    id: audience
+    attributes:
+      label: Audience
+      description: e.g. Claude Code agents implementing issues, developers, product owner.
+
+  - type: textarea
+    id: content-outline
+    attributes:
+      label: Content outline / source of truth
+      description: |
+        Section list and where facts come from (business source, existing code, meeting notes).
+        Do not invent business rules — mark unconfirmed items as "To be confirmed".
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Use `- [ ]` items.
+    validations:
+      required: true
+
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of Done
+      value: |
+        - [ ] All Acceptance Criteria met
+        - [ ] Uncertain business facts explicitly marked "To be confirmed", not invented
+        - [ ] PR opened against `develop`, linked to this issue

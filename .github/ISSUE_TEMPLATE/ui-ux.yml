@@ -1,0 +1,70 @@
+name: UI / UX
+description: Visual design, layout, theming, or usability change (no new business logic)
+title: "ui(<area>): <short description>"
+labels: ["type:ui"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Global UI direction (from CLAUDE.md §4): modern premium SaaS, **dark-first
+        with light mode**, blue/indigo/cyan accents, rounded cards, readable tables,
+        minimal animation, **no slider/carousel**, readability over decoration.
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What should look/behave differently after this change?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screens-affected
+    attributes:
+      label: Screens / components affected
+      description: List routes (e.g. `app/page.tsx`) and/or packages/ui components.
+    validations:
+      required: true
+
+  - type: textarea
+    id: design-spec
+    attributes:
+      label: Design specification
+      description: |
+        Concrete spec: layout, spacing, colors (use theme tokens, not hex), typography,
+        states (hover/focus/empty/loading), responsive behavior. Attach mockups if any.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: modes
+    attributes:
+      label: Theme modes to support
+      options:
+        - label: Dark mode (default)
+        - label: Light mode
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+      description: Anything this issue must NOT change (e.g. business logic, data fetching).
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Use `- [ ]` items, include dark AND light mode checks.
+    validations:
+      required: true
+
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of Done
+      value: |
+        - [ ] All Acceptance Criteria met
+        - [ ] Renders correctly in dark and light mode
+        - [ ] No readability regressions; no slider/carousel added
+        - [ ] lint + typecheck + build pass
+        - [ ] PR opened against `develop`, linked to this issue
