@@ -1,0 +1,93 @@
+name: Feature
+description: New functionality for the Project Management System (implementation-ready)
+title: "feat(<area>): <short description>"
+labels: ["type:feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue will be implemented (mostly autonomously) by Claude Code.
+        Fill every section — anything left blank will be treated as "do not invent".
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: One or two sentences. What must exist when this issue is done?
+    validations:
+      required: true
+
+  - type: textarea
+    id: business-context
+    attributes:
+      label: Business context
+      description: |
+        Why this is needed. Reference `docs/requirements/project-management-domain-spec.md`
+        sections or the business source (Dev_Project69.xlsx) where applicable.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: |
+        What is included and what is explicitly OUT of scope.
+        Format: `In:` bullet list, `Out:` bullet list.
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: Concrete, verifiable requirements (numbered). No "etc." — be exhaustive.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: |
+        Checklist the implementation is verified against. Use `- [ ]` items.
+        Example: `- [ ] Projects list shows name, manager, status, and updated date`
+    validations:
+      required: true
+
+  - type: textarea
+    id: ui-reference
+    attributes:
+      label: UI reference
+      description: |
+        Screens/states involved, sketch, screenshot, or written description.
+        Must comply with CLAUDE.md §4 UI/UX rules (dark-first, blue/indigo/cyan,
+        rounded cards, readable tables, minimal animation, no slider/carousel).
+        Leave empty only for non-UI work.
+
+  - type: textarea
+    id: technical-constraints
+    attributes:
+      label: Technical constraints
+      description: |
+        e.g. use packages/ui components, packages/api service pattern, data comes from
+        X, must work with static export, etc. Default: follow CLAUDE.md.
+
+  - type: textarea
+    id: test-requirements
+    attributes:
+      label: Test requirements
+      description: |
+        What must be verified and how. Note: no test framework is configured yet —
+        specify manual verification steps if automated tests are not possible.
+
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of Done
+      description: Defaults to CLAUDE.md §11 checklist. Add issue-specific extras here.
+      value: |
+        - [ ] All Acceptance Criteria met
+        - [ ] lint + typecheck + build pass
+        - [ ] PR opened against `develop`, linked to this issue
+        - [ ] Follows CLAUDE.md UI/UX and coding rules

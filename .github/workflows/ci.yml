@@ -1,0 +1,46 @@
+name: CI
+
+# Validates every Pull Request (lint, typecheck, build).
+# The GitHub Pages deploy workflow (nextjs.yml) is separate and runs on push to main.
+
+on:
+  pull_request:
+    branches: ["main", "develop"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: lint / typecheck / build (web)
+    runs-on: ubuntu-latest
+    env:
+      HUSKY: "0"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint (web)
+        run: yarn workspace web lint
+
+      - name: Typecheck (web)
+        run: yarn workspace web typecheck
+
+      # Tests: no test framework is configured yet.
+      # When one is adopted, add a `test` Turbo task in the workspace package.json
+      # files and a "Test" step here (e.g. `yarn test` via turbo).
+
+      - name: Build (web)
+        run: yarn build:web
