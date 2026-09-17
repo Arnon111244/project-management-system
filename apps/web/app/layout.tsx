@@ -14,12 +14,14 @@ const LIVE_DEMO_URL =
   "https://react-native-next-theme-web.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Monorepo Starter — Next.js + Expo",
-  description: "Turborepo monorepo with shared packages for web and mobile.",
+  title: "Project Management System",
+  description:
+    "Internal Project Management System (PMS) — projects, lifecycle, teams, contracts, milestones, timeline, finance, incentives, warranty, reports, and dashboard.",
   metadataBase: new URL(LIVE_DEMO_URL),
   openGraph: {
-    title: "Monorepo Starter — Next.js + Expo",
-    description: "Turborepo monorepo with shared packages for web and mobile.",
+    title: "Project Management System",
+    description:
+      "Internal Project Management System (PMS) — projects, lifecycle, teams, contracts, milestones, timeline, finance, incentives, warranty, reports, and dashboard.",
     url: LIVE_DEMO_URL,
     siteName: "Monorepo Starter",
     type: "website",
@@ -34,8 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Monorepo Starter — Next.js + Expo",
-    description: "Turborepo monorepo with shared packages for web and mobile.",
+    title: "Project Management System",
+    description:
+      "Internal Project Management System (PMS) — projects, lifecycle, teams, contracts, milestones, timeline, finance, incentives, warranty, reports, and dashboard.",
     images: ["/og-image.png"],
   },
 };
