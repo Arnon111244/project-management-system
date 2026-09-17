@@ -8,6 +8,8 @@
     "reset": "turbo run clean || true; rm -rf node_modules .turbo .expo; find apps -name node_modules -type d -prune -exec rm -rf {} +; find packages -name node_modules -type d -prune -exec rm -rf {} +",
     "reinstall": "yarn run reset && yarn",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
     "prepare": "husky install",
     "web": "yarn workspace web dev",
     "build:web": "yarn workspace web build",
