@@ -25,9 +25,14 @@ export {
   PmsProjectsService,
   setPmsMockScenario,
   type PmsProjectRecord,
+  type CreatePmsProjectInput,
   type PmsMockScenario,
 } from "./services/pms";
-export { usePmsProjects, usePmsProject } from "./hooks/usePms";
+export {
+  usePmsProjects,
+  usePmsProject,
+  useCreatePmsProject,
+} from "./hooks/usePms";
 
 export function buildApiUrl(
   endpointPath: string,
