@@ -209,10 +209,13 @@ export function ProjectTabContent({ slug }: { slug: string }) {
 function DefinitionRow({
   label,
   value,
+  tbcId,
   isLast,
 }: {
   label: string;
   value: string;
+  /** IA TBC reference for a provisional field (IA §11 register). */
+  tbcId?: string;
   isLast: boolean;
 }) {
   return (
@@ -222,7 +225,14 @@ function DefinitionRow({
         !isLast && "border-b border-border dark:border-border-dark",
       )}
     >
-      <Text className="text-sm text-fg/60 dark:text-fg-dark/60">{label}</Text>
+      <View className="flex-1">
+        <Text className="text-sm text-fg/60 dark:text-fg-dark/60">{label}</Text>
+        {tbcId ? (
+          <Text className="text-xs text-fg/40 dark:text-fg-dark/40">
+            {tbcId}
+          </Text>
+        ) : null}
+      </View>
       <Text className="flex-1 text-right text-sm font-medium text-fg dark:text-fg-dark">
         {value}
       </Text>
@@ -230,12 +240,54 @@ function DefinitionRow({
   );
 }
 
-/** SCR-04: provisional identification fields (IA-TBC-01). */
+/**
+ * SCR-04: provisional identification and summary fields (IA §7 tab 1). Each row is
+ * traceable to the IA TBC register (§11) — the field set itself is TBC (IA-TBC-01),
+ * and the further columns mirror the SCR-02 list columns (IA §6).
+ */
 function OverviewContent({ project }: { project: PmsProjectRecord }) {
   const rows = [
-    { label: "Project code (provisional)", value: project.code },
-    { label: "Project name (provisional)", value: project.name },
-    { label: "Lifecycle status (provisional)", value: project.lifecycleStatus },
+    {
+      label: "Project code (provisional)",
+      value: project.code,
+      tbcId: "IA-TBC-01",
+    },
+    {
+      label: "Project name (provisional)",
+      value: project.name,
+      tbcId: "IA-TBC-01",
+    },
+    {
+      label: "Lifecycle status (provisional)",
+      value: project.lifecycleStatus,
+      tbcId: "IA-TBC-02",
+    },
+    {
+      label: "Project manager (provisional)",
+      value: project.projectManager ?? "—",
+      tbcId: "IA-TBC-03",
+    },
+    {
+      label: "Contract value (provisional)",
+      value: project.contractValue ?? "—",
+      tbcId: "IA-TBC-04",
+    },
+    {
+      label: "Timeline start–end (provisional)",
+      value:
+        project.plannedStart || project.plannedEnd
+          ? `${project.plannedStart ?? "—"} – ${project.plannedEnd ?? "—"}`
+          : "—",
+      tbcId: "IA-TBC-06",
+    },
+    {
+      label: "Budget / DEV cost (provisional)",
+      value:
+        project.budget || project.devCost
+          ? `${project.budget ?? "—"} / ${project.devCost ?? "—"}`
+          : "—",
+      tbcId: "IA-TBC-07",
+    },
   ];
 
   return (
@@ -244,7 +296,8 @@ function OverviewContent({ project }: { project: PmsProjectRecord }) {
         <CardTitle className="text-base">Identification</CardTitle>
         <CardDescription>
           Identification fields are to be confirmed (IA-TBC-01) — the values
-          below are provisional demo data.
+          below are provisional demo data, each carrying its IA TBC reference
+          (IA §11).
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -253,6 +306,7 @@ function OverviewContent({ project }: { project: PmsProjectRecord }) {
             key={row.label}
             label={row.label}
             value={row.value}
+            tbcId={row.tbcId}
             isLast={index === rows.length - 1}
           />
         ))}
