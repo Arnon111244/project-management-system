@@ -21,6 +21,13 @@ export { useIp } from "./hooks/useIp";
 export { useApiUrl, useEnvironment } from "./hooks/useEnvironment";
 export { IpService } from "./services/ip";
 export { getApiUrl, API_ENDPOINTS, type Environment } from "./lib/config";
+export {
+  PmsProjectsService,
+  setPmsMockScenario,
+  type PmsProjectRecord,
+  type PmsMockScenario,
+} from "./services/pms";
+export { usePmsProjects, usePmsProject } from "./hooks/usePms";
 
 export function buildApiUrl(
   endpointPath: string,
